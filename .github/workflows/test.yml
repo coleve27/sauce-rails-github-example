@@ -54,7 +54,7 @@ jobs:
 
       - name: start server
         run: |
-          bin/rails server 
+          bin/rails server &
           curl http://localhost:3000
      # - name: Run tests
        # run: bundle exec rspec spec/features/hello_world_spec.rb
