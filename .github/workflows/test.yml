@@ -38,12 +38,6 @@ jobs:
           username: ${{ secrets.SAUCE_USERNAME }}
           accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
           tunnelIdentifier: sauce-ci-tunnel
-          verbose: true
-             
-      - name: curl
-        uses: wei/curl@v1
-        with:
-          args: http://localhost:3000
 
       - name: Install GH Actions Prerequisites
         run: apt-get update && apt-get install -y nodejs zstd git
@@ -57,14 +51,5 @@ jobs:
       - name: Install Dependencies
         run: gem install bundler && bundle install
 
-      - name: start server
-        run: |
-          bin/rails server &
-           # curl http://localhost:3000
-                         
-      - name: curl
-        uses: wei/curl@v1
-        with:
-          args: http://localhost:3000
-     # - name: Run tests
-       # run: bundle exec rspec spec/features/hello_world_spec.rb
+      - name: Run tests
+        run: bundle exec rspec spec/features/hello_world_spec.rb
