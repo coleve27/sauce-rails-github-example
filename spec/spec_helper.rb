@@ -18,8 +18,8 @@ RSpec.configure do |config|
     # Configure the server host
     Capybara.server_host = '0.0.0.0'
     # Configure the server port
-    Capybara.server_port = 3001
-    Capybara.app_host = 'http://localhost:3001'
+    Capybara.server_port = 3000
+    Capybara.app_host = 'http://localhost:3000'
     Capybara.register_driver :sauce do |app|
       url = "https://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.us-west-1.saucelabs.com:443/wd/hub"
       browser_name = ENV['BROWSER_NAME'] || 'chrome'
